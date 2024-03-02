@@ -28,9 +28,15 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # fastbootd
+TW_INCLUDE_FASTBOOTD := true
+
 PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.0-impl-mock \
+    android.hardware.fastboot@1.1-impl-mock \
+    android.hardware.fastboot@1.0-impl-mock.recovery \
     fastbootd
+
+PRODUCT_PRODUCT_PROPERTIES += \
+	ro.fastbootd.available=true
 
 # Charger
 PRODUCT_PACKAGES += \
